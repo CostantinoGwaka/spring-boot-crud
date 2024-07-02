@@ -20,3 +20,18 @@ Content-Type: application/json
   "dateUpdated": null,
   "url": ""
 }
+
+###update new data
+PUT http://localhost:8080/api/content/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "My thrid Blog Post!!!",
+  "desc": "My Second Blog Post",
+  "status": "IDEA",
+  "contentType": "ARTICLE",
+  "dateCreated": "2024-07-02T11:06:08.9703848",
+  "dateUpdated": null,
+  "url": ""
+}

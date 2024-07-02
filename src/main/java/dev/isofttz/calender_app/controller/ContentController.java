@@ -40,7 +40,15 @@ public class ContentController {
         repository.createContent(content);
     }
 
-    //create read update delete pagging sort
+
+    @PutMapping("/{id}")
+    public void update(@RequestBody Content content,@PathVariable("id") Integer id){
+        if(!repository.existsById(id)){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found");
+        }
+
+        repository.createContent(content);
+    }
 
 
 }
