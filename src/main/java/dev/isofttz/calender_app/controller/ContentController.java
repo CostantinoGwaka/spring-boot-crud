@@ -3,10 +3,9 @@ package dev.isofttz.calender_app.controller;
 
 import dev.isofttz.calender_app.model.Content;
 import dev.isofttz.calender_app.repository.ContentCollectionRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,11 +29,16 @@ public class ContentController {
 
 
     @GetMapping("/{id}")
-    public Optional<Content> findById(@PathVariable("id") Integer id){
-    return repository.findById(id);
+    public Content findById(@PathVariable("id") Integer id){
+    return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content Not Found"));
     }
 
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    public void create(@RequestBody Content content){
+        repository.createContent(content);
+    }
 
     //create read update delete pagging sort
 
