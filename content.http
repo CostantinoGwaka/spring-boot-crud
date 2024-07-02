@@ -11,7 +11,7 @@ POST http://localhost:8080/api/content
 Content-Type: application/json
 
 {
-  "id": 3,
+  "id": 2,
   "title": "My Second Blog Post",
   "desc": "My Second Blog Post",
   "status": "IDEA",
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ###update new data
-PUT http://localhost:8080/api/content/1
+PUT http://localhost:8080/api/content/19
 Content-Type: application/json
 
 {
@@ -35,3 +35,7 @@ Content-Type: application/json
   "dateUpdated": null,
   "url": ""
 }
+
+
+###delete new data
+DELETE http://localhost:8080/api/content/2

@@ -41,6 +41,7 @@ public class ContentController {
     }
 
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     public void update(@RequestBody Content content,@PathVariable("id") Integer id){
         if(!repository.existsById(id)){
@@ -48,6 +49,13 @@ public class ContentController {
         }
 
         repository.createContent(content);
+    }
+
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        repository.delete(id);
     }
 
 
